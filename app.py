@@ -7,6 +7,16 @@ import vlc
 import time
 import os
 
+
+model_path = "yolov5/runs/train/exp2/weights/last.pt"
+
+if not os.path.exists(model_path):
+    st.error(f"Model file not found: {model_path}")
+else:
+    st.write(f"Model file exists: {model_path}")
+    st.write(f"File permissions: {oct(os.stat(model_path).st_mode)[-3:]}")
+
+
 # Global variables
 model = None
 counter = 0
