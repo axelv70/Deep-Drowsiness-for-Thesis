@@ -29,7 +29,7 @@ def _create(name, pretrained=True, channels=3, classes=80, autoshape=True, verbo
     Returns:
         YOLOv5 model
     """
-    from pathlib import Path
+    from pathlib import PosixPath as Path
 
     from models.common import AutoShape, DetectMultiBackend
     from models.experimental import attempt_load
