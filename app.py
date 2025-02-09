@@ -16,7 +16,7 @@ else:
     st.write(f"Model file exists: {model_path}")
     st.write(f"File permissions: {oct(os.stat(model_path).st_mode)[-3:]}")
 
-
+os.chmod("yolov5/runs/train/exp2/weights/last.pt", 0o644)
 # Global variables
 model = None
 counter = 0
