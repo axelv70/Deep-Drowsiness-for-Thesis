@@ -6,6 +6,7 @@ from PIL import Image
 import vlc
 import time
 import os
+from pathlib import Path
 
 # Global variables
 model = None
@@ -17,9 +18,14 @@ if 'alarm_sound' not in st.session_state:
     st.session_state['alarm_sound'] = "Android Notification Sound Effect.wav"  # Default alarm sound
 
 # Load YOLOv5 model function
+# def load_model():
+#     global model
+#     model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp2/weights/last.pt')
+
 def load_model():
-    global model
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp2/weights/last.pt')
+    model_path = Path("yolov5/runs/train/exp2/weights/last.pt")  # Convert to PosixPath
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path=str(model_path))
+    return model
 
 # Function to reset counter
 def reset():
