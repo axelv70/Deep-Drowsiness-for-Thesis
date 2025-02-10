@@ -8,7 +8,6 @@ import time
 import os
 from pathlib import Path
 
-print("Hello World 1")
 # Global variables
 model = None
 counter = 0
@@ -23,6 +22,7 @@ if 'alarm_sound' not in st.session_state:
 #     global model
 #     model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp2/weights/last.pt', force_reload=True)
 def load_model():
+    print("Hello World 1")
     global model
     model_path = str(Path("last.pt").resolve())  # Convert Path object to string
     model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
