@@ -19,6 +19,7 @@ if 'alarm_sound' not in st.session_state:
 
 # Load YOLOv5 model function
 def load_model():
+    global model
     model_path = Path("yolov5/runs/train/exp2/weights")
     filename = "last.pt"
     fullpath = f"{model_path}/{filename}"
