@@ -6,7 +6,7 @@ from PIL import Image
 import vlc
 import time
 import os
-from pathlib import PosixPath
+from pathlib import Path
 
 # Global variables
 model = None
@@ -19,8 +19,8 @@ if 'alarm_sound' not in st.session_state:
 
 # Load YOLOv5 model function
 def load_model():
-    global model
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp2/weights/last.pt', force_reload=True)
+    model_path = Path("yolov5/runs/train/exp2/weights/last.pt").as_posix()
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
 
 # Function to reset counter
 def reset():
