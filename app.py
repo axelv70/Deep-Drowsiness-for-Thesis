@@ -18,17 +18,9 @@ if 'alarm_sound' not in st.session_state:
     st.session_state['alarm_sound'] = "Android Notification Sound Effect.wav"  # Default alarm sound
 
 # Load YOLOv5 model function
-# def load_model():
-#     global model
-#     model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp2/weights/last.pt', force_reload=True)
 def load_model():
     global model
-    model_path = "last.pt"
-
-    if not os.path.exists(model_path):
-        raise FileNotFoundError(f"Model file '{model_path}' not found. Ensure it's in the correct directory.")
-
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp2/weights/last.pt', force_reload=True)
 
 # Function to reset counter
 def reset():
