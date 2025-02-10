@@ -8,6 +8,7 @@ import time
 import os
 from pathlib import Path
 
+print("Hello World 1")
 # Global variables
 model = None
 counter = 0
