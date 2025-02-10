@@ -23,7 +23,11 @@ if 'alarm_sound' not in st.session_state:
 #     model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolov5/runs/train/exp2/weights/last.pt', force_reload=True)
 def load_model():
     global model
-    model_path = str(PosixPath("yolov5/runs/train/exp2/weights/last.pt"))  # Convert Path object to string
+    model_path = "last.pt"
+
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"Model file '{model_path}' not found. Ensure it's in the correct directory.")
+
     model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
 
 # Function to reset counter
